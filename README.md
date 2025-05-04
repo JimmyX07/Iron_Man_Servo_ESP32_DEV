@@ -1,4 +1,4 @@
-Hey! The name's Jim, I'm what could be defined as an "engineerr in training".
+Hey! The name's Jim, I'm what could be defined as an "engineer in training".
 
 Let's start with the WARNINGS: THIS PROJECT IS MADE FOR RECREATIONAL PURPOSE ONLY.
 I CANNOT BE HELD RESPONSIBLE FOR ANY DAMAGE THIS CODE MAY CAUSE TO YOU OR YOUR BOARDS.
