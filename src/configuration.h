@@ -21,3 +21,5 @@ If you're using a J.I.M. board that I gave you you don't need to modify the "PIN
 // SERVO PWM VALUES, modify them according to the specs of the servos you are using
 #define PWM_LOW 500
 #define PWM_HIGH 2500
+
+#define EYES_STARTUP_BLINK

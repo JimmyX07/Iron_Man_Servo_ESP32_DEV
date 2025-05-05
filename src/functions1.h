@@ -11,6 +11,8 @@ OneButton button(BUTTON_PIN, true);
 bool isMaskUp;
 bool areEyesOn;
 
+void eyesActivate();
+
 void eyesOn() {
     digitalWrite(RIGHT_EYE, HIGH);
     digitalWrite(LEFT_EYE, HIGH);
@@ -28,9 +30,15 @@ void maskSetup() {
     servo2.write(SERVO2_CLOSE_POS);
     pinMode(RIGHT_EYE, OUTPUT);
     pinMode(LEFT_EYE, OUTPUT);
-    eyesOn();
+    delay(1000);
+    #ifdef EYES_STARTUP_BLINK
+        eyesActivate();
+    #endif
+    #ifndef EYES_STARTUP_BLINK
+        eyesOn();
+    #endif
     areEyesOn = true;
-    delay(3000);
+    delay(2000);
     servo1.detach();
     servo2.detach();
 }
@@ -80,3 +88,20 @@ void toggleEyes() {
     }
     areEyesOn = !areEyesOn;
 }
+
+void eyesActivate() {
+    // Effetto lampeggio occhi come in Iron Man
+    for (int i = 0; i < 3; i++) {  // Esegui 5 lampeggi
+      digitalWrite(RIGHT_EYE, HIGH);  // Accendi occhio destro
+      digitalWrite(LEFT_EYE, HIGH);   // Accendi occhio sinistro
+      delay(100);                     // Mantieni gli occhi accesi per 100ms
+      digitalWrite(RIGHT_EYE, LOW);   // Spegni occhio destro
+      digitalWrite(LEFT_EYE, LOW);    // Spegni occhio sinistro
+      delay(100);                     // Mantieni gli occhi spenti per 100ms
+    }
+  
+    // Dopo il lampeggio, accendi gli occhi definitivamente
+    digitalWrite(RIGHT_EYE, HIGH);
+    digitalWrite(LEFT_EYE, HIGH);
+  }
+  
