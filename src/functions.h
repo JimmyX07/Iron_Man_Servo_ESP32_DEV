@@ -110,7 +110,7 @@ void eyesActivate() {
       digitalWrite(LEFT_EYE, LOW);
       delay(50);
     }
-    delay(300);
+    delay(350);
   
 
     digitalWrite(RIGHT_EYE, HIGH);
