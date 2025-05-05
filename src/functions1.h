@@ -38,7 +38,7 @@ void maskSetup() {
         eyesOn();
     #endif
     areEyesOn = true;
-    delay(2000);
+    delay(1000);
     servo1.detach();
     servo2.detach();
 }
@@ -62,7 +62,7 @@ void maskDown() {
     servo1.write(SERVO1_CLOSE_POS);
     delay(800);
     eyesOn();
-    delay(2000);
+    delay(1200);
     areEyesOn = true;
     servo1.detach();
     servo2.detach();

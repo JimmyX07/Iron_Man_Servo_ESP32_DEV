@@ -22,4 +22,5 @@ If you're using a J.I.M. board that I gave you you don't need to modify the "PIN
 #define PWM_LOW 500
 #define PWM_HIGH 2500
 
+// EYES STARTUP EFFECTS, this will be updated but basically uncomment this line to have the eyes blink at startup.
 #define EYES_STARTUP_BLINK
