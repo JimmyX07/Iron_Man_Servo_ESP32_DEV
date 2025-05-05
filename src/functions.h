@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 #include <OneButton.h>
-#include <configuration.h>
+#include <customization.h>
 
 Servo servo1;
 Servo servo2;
