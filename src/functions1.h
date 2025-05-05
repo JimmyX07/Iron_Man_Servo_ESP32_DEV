@@ -25,6 +25,7 @@ void eyesOff() {
 }
 
 void maskSetup() {
+    delay(2000);
     servo1.attach(SERVO1_PIN, PWM_LOW, PWM_HIGH);
     servo2.attach(SERVO2_PIN, PWM_LOW, PWM_HIGH);
     servo1.write(SERVO1_CLOSE_POS);
