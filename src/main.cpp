@@ -29,7 +29,6 @@ void setup() {
   maskSetup();
   button.attachClick(toggleMask);
   button.attachDoubleClick(toggleEyes);
-  button.attachLongPressStart(eyesDimAndBrightenWithButton);
 }
 
 void loop() {
