@@ -28,6 +28,9 @@ void maskSetup() {
     delay(2000);
     servo1.attach(SERVO1_PIN, PWM_LOW, PWM_HIGH);
     servo2.attach(SERVO2_PIN, PWM_LOW, PWM_HIGH);
+    servo1.write(90);
+    servo2.write(90);
+    delay(80);
     servo1.write(SERVO1_CLOSE_POS);
     servo2.write(SERVO2_CLOSE_POS);
     pinMode(RIGHT_EYE, OUTPUT);
