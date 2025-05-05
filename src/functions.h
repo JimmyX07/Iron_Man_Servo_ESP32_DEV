@@ -126,29 +126,3 @@ void eyesActivate() {
     digitalWrite(RIGHT_EYE, HIGH);
     digitalWrite(LEFT_EYE, HIGH);
   }
-
-void eyesDimAndBrightenWithButton() {
-    while (true) {
-        // Dim the eyes till they are off
-        for (int i = 255; i >= 0; i--) {
-            analogWrite(RIGHT_EYE, i);
-            analogWrite(LEFT_EYE, i);
-            delay(5);
-            if (!digitalRead(BUTTON_PIN)) { // Check if button is released
-                return;
-            }
-        }
-        delay(500); // Pause before brightening
-
-        // Brighten the eyes slowly till they are fully bright
-        for (int i = 0; i <= 255; i++) {
-            analogWrite(RIGHT_EYE, i);
-            analogWrite(LEFT_EYE, i);
-            delay(5);
-            if (!digitalRead(BUTTON_PIN)) { // Check if button is released
-                return;
-            }
-        }
-        delay(500); // Pause before dimming again
-    }
-}
