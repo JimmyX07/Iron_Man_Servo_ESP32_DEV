@@ -13,7 +13,7 @@ It has some basic features to motorize an Iron Man helmet using two MG90s (of an
 you can modify the PWM values in the code's CONFIGURATION tab), two leds and a momentary
 push button like the limit switches used in 3D printers.
 
-in the configuration.h tab you can play around with different customizations either if you 
+In the configuration.h tab you can play around with different customizations either if you 
 want the eyes to behave differently, the servos to have different values or you're not using 
 a J.I.M. board that I gave you myself and you wanna change some pins.
 
