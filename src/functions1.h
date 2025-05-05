@@ -12,6 +12,7 @@ bool isMaskUp;
 bool areEyesOn;
 
 void eyesActivate();
+void eyesFadeIn();
 
 void eyesOn() {
     digitalWrite(RIGHT_EYE, HIGH);
@@ -34,8 +35,13 @@ void maskSetup() {
     #ifdef EYES_STARTUP_BLINK
         eyesActivate();
     #endif
+    #ifdef EYES_FADE_IN
+        eyesFadeIn();
+    #endif
     #ifndef EYES_STARTUP_BLINK
-        eyesOn();
+        #ifndef EYES_FADE_IN
+            eyesOn();
+        #endif
     #endif
     areEyesOn = true;
     delay(1000);
@@ -91,17 +97,26 @@ void toggleEyes() {
 
 void eyesActivate() {
     // Effetto lampeggio occhi come in Iron Man
-    for (int i = 0; i < 3; i++) {  // Esegui 5 lampeggi
+    for (int i = 0; i < 2; i++) {  // Esegui 5 lampeggi
       digitalWrite(RIGHT_EYE, HIGH);  // Accendi occhio destro
       digitalWrite(LEFT_EYE, HIGH);   // Accendi occhio sinistro
-      delay(100);                     // Mantieni gli occhi accesi per 100ms
+      delay(50);                     // Mantieni gli occhi accesi per 100ms
       digitalWrite(RIGHT_EYE, LOW);   // Spegni occhio destro
       digitalWrite(LEFT_EYE, LOW);    // Spegni occhio sinistro
-      delay(100);                     // Mantieni gli occhi spenti per 100ms
+      delay(50);                     // Mantieni gli occhi spenti per 100ms
     }
+    delay(300);
   
     // Dopo il lampeggio, accendi gli occhi definitivamente
     digitalWrite(RIGHT_EYE, HIGH);
     digitalWrite(LEFT_EYE, HIGH);
   }
   
+  void eyesFadeIn() {
+    // Effetto fade in per gli occhi
+    for (int i = 0; i <= 255; i++) {  // Incrementa il valore di luminosità da 0 a 255
+      analogWrite(RIGHT_EYE, i);      // Imposta la luminosità dell'occhio destro
+      analogWrite(LEFT_EYE, i);       // Imposta la luminosità dell'occhio sinistro
+      delay(10);                     // Ritardo per un effetto di transizione più fluido
+    }
+  }
