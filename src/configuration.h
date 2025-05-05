@@ -24,5 +24,8 @@ If you're using a J.I.M. board that I gave you you don't need to modify the "PIN
 
 // EYES STARTUP EFFECTS, this will be updated but basically uncomment the line for the feature you want to use.
 // Comment both to have the eyes on without any effect at startup.
-// #define EYES_STARTUP_BLINK
-#define EYES_FADE_IN
+#define EYES_STARTUP_BLINK
+// #define EYES_FADE_IN
+
+//EYES CLOSE EFFECT, uncomment the line if you want the eyes to fade in when the mask closes.
+#define EYES_CLOSE_FADE_IN

@@ -15,13 +15,13 @@ void eyesActivate();
 void eyesFadeIn();
 
 void eyesOn() {
-    digitalWrite(RIGHT_EYE, HIGH);
-    digitalWrite(LEFT_EYE, HIGH);
+    analogWrite(RIGHT_EYE, 255);
+    analogWrite(LEFT_EYE, 255);
 }
 
 void eyesOff() {
-    digitalWrite(RIGHT_EYE, LOW);
-    digitalWrite(LEFT_EYE, LOW);
+    analogWrite(RIGHT_EYE, 0);
+    analogWrite(LEFT_EYE, 0);
 }
 
 void maskSetup() {
@@ -67,7 +67,12 @@ void maskDown() {
     servo2.write(SERVO2_CLOSE_POS);
     servo1.write(SERVO1_CLOSE_POS);
     delay(800);
-    eyesOn();
+    #ifdef EYES_CLOSE_FADE_IN
+        eyesFadeIn();
+    #endif
+    #ifndef EYES_CLOSE_FADE_IN
+        eyesOn();
+    #endif
     delay(1200);
     areEyesOn = true;
     servo1.detach();
@@ -105,7 +110,7 @@ void eyesActivate() {
       digitalWrite(LEFT_EYE, LOW);    // Spegni occhio sinistro
       delay(50);                     // Mantieni gli occhi spenti per 100ms
     }
-    delay(300);
+    delay(350);
   
     // Dopo il lampeggio, accendi gli occhi definitivamente
     digitalWrite(RIGHT_EYE, HIGH);
@@ -117,6 +122,8 @@ void eyesActivate() {
     for (int i = 0; i <= 255; i++) {  // Incrementa il valore di luminosità da 0 a 255
       analogWrite(RIGHT_EYE, i);      // Imposta la luminosità dell'occhio destro
       analogWrite(LEFT_EYE, i);       // Imposta la luminosità dell'occhio sinistro
-      delay(10);                     // Ritardo per un effetto di transizione più fluido
+      delay(5);                     // Ritardo per un effetto di transizione più fluido
     }
+    digitalWrite(RIGHT_EYE, HIGH);  // Assicurati che gli occhi siano accesi
+    digitalWrite(LEFT_EYE, HIGH);   // Assicurati che gli occhi siano accesi
   }
