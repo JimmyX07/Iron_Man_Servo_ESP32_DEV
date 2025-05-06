@@ -127,3 +127,30 @@ void eyesActivate() {
     digitalWrite(RIGHT_EYE, HIGH);
     digitalWrite(LEFT_EYE, HIGH);
   }
+
+void eyesSlowOnAndBlink() {
+    // Slowly turn on the eyes
+    for (int i = 0; i <= 255; i++) {
+        analogWrite(RIGHT_EYE, i);
+        analogWrite(LEFT_EYE, i);
+        delayMicroseconds(1500);
+    }
+    analogWrite(RIGHT_EYE, 0);
+    analogWrite(LEFT_EYE, 0);
+    delay(100);
+    // Blink the eyes 2 times
+    for (int i = 0; i < 2; i++) {
+        analogWrite(RIGHT_EYE, 0);
+        analogWrite(LEFT_EYE, 0);
+        delay(75);
+        analogWrite(RIGHT_EYE, 255);
+        analogWrite(LEFT_EYE, 255);
+        delay(75);
+    }
+    analogWrite(RIGHT_EYE, 0);
+    analogWrite(LEFT_EYE, 0);
+    delay(350);
+    // Ensure the eyes are fully on
+    analogWrite(RIGHT_EYE, 255);
+    analogWrite(LEFT_EYE, 255);
+}
